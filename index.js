@@ -39,6 +39,10 @@ function generarTabla() {
 const server = http.createServer((req, res) => {
   res.setHeader("Content-Type", "text/html; charset=utf-8");
 
+  if (req.url == "/favicon.ico") {
+    return;
+  }
+
   if (req.url == "/index") {
     let data = generarTabla();
     res.write(`<table><tr>
